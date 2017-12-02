@@ -1,5 +1,5 @@
 # *Heterosigma akashiwo* Genome assembly
-According to Roseann Catalico genome size should be approximately half of the human genome or 1500m
+According to Roseann Catalico genome size should be approximately half of the human genome or 1500 Mbp
 
 ## Software installation
 ```
@@ -45,6 +45,7 @@ cat ha* > ../heterosigma.fastq
 ```
 PBcR -length 500 -partitions 200 -l heterosigma -s ha.spec -fastq ../originals/heterosigma.fastq genomeSize=1500000000
 ```
+After examining the results from the 1500 Mbp, I think the correct estimated genome size is ~150 Mbp.  See [genome sizes](https://github.com/calandryll/ha_genome/blob/master/genome_size.md) for estimated genome sizes of other organisms.  A closely related species (*Ectocarpus siliculosus*) has approximately 200 Mbp for its genome size.  Being a multicellular organism, it can be assumed that *H. akashiwo*, a single cellular organism, would have a smaller genome size.  Looking at other single celled organisms shows a similar size of 100-150 Mbp.
 
 ## Canu Re-run
 ```

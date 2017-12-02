@@ -7,7 +7,7 @@ Species | Genome Size
 *Micromonas* | ~22 Mbp
 *Ostreococcus* | ~13 Mbp
 
-Est. Genome Size | Coverage
+Est. Genome Size | Read Coverage
 -----------------|---------
 1500 Mbp | 5X
 1500 kbp | 5400X
