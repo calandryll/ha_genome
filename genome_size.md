@@ -6,6 +6,8 @@ Species | Genome Size
 *Chlamydomonas reinhardtii* | ~111 Mbp
 *Micromonas* | ~22 Mbp
 *Ostreococcus* | ~13 Mbp
+*Emiliania huxleyi* | 167.68 Mbp
+
 
 Est. Genome Size | Read Coverage
 -----------------|---------

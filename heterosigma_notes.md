@@ -51,3 +51,19 @@ After examining the results from the 1500 Mbp, I think the correct estimated gen
 ```
 ~/bin/canu/*/bin/canu -d canu -p heterosigma -pacbio-raw originals/heterosigma.fastq genomeSize=150m minMemory=24
 ```
+
+## Higher Correction
+```
+~/bin/canu/*/bin/canu -d canu-high -p heterosigma -pacbio-raw originals/heterosigma.fastq genomeSize=150m corMhapSensitivity=high corMinCoverage=0 corOutCoverage=100
+```
+
+Between the two runs, low number of contigs 6744 and 3553 respecitively.  Compared to number of contigs generated via the transcriptome these seem low.  Additionally related organisms have closer to the number of contigs as derived by the transcriptome.  Will try a genome size of 100 Mbp as well as MECAT.
+
+## MECAT
+```
+mecat2pw -j 0 -d originals/heterosigma.fastq -o mecat/heterosigma.fastq.pm.can -w tmp -t 4
+```
+
+```
+mecat2cns -i 0 -t 4 mecat/heterosigma.fastq.pm.can originals/heterosigma.fastq mecat/corrected_heterosigma.fasta
+```
