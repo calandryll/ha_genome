@@ -60,10 +60,22 @@ After examining the results from the 1500 Mbp, I think the correct estimated gen
 Between the two runs, low number of contigs 6744 and 3553 respecitively.  Compared to number of contigs generated via the transcriptome these seem low.  Additionally related organisms have closer to the number of contigs as derived by the transcriptome.  Will try a genome size of 100 Mbp as well as MECAT.
 
 ## MECAT
+### Mapping and overlapping of reads
 ```
 mecat2pw -j 0 -d originals/heterosigma.fastq -o mecat/heterosigma.fastq.pm.can -w tmp -t 4
 ```
-
+### Correct Noisy Reads
 ```
 mecat2cns -i 0 -t 4 mecat/heterosigma.fastq.pm.can originals/heterosigma.fastq mecat/corrected_heterosigma.fasta
+```
+### Extract high coverage of reads
+```
+extract_sequences mecat/corrected_heterosigma.fasta mecat/corrected_heterosigma_25x 150000000 25
+extract_sequences mecat/corrected_heterosigma.fasta mecat/corrected_heterosigma_40x 150000000 40
+```
+All files are identical, not sure if step is needed.
+
+### Assemble Reads
+```
+mecat2canu -trim-assemble -p heterosigma -d mecat genomeSize=150m ErrorRate=0.02 maxMemory=31 maxThreads=4 Overlapper=mecat2asmpw -pacbio-corrected mecat/corrected_heterosigma.fasta
 ```
