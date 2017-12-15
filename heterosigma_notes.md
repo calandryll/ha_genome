@@ -79,3 +79,9 @@ All files are identical, not sure if step is needed.
 ```
 mecat2canu -trim-assemble -p heterosigma -d mecat genomeSize=150m ErrorRate=0.02 maxMemory=31 maxThreads=4 Overlapper=mecat2asmpw -pacbio-corrected mecat/corrected_heterosigma.fasta
 ```
+Low number of assembled contigs.  Perhaps from issues with coverage?  Will try assembly with canu at 110 Mbp to see if that improves.
+
+## Canu 100 Mbp
+```
+~/bin/canu/*/bin/canu -correct -d canu-100 -p heterosigma -pacbio-raw originals/heterosigma.fastq genomeSize=110m maxMemory=31
+```
