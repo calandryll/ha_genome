@@ -118,6 +118,36 @@ arrow -j 4 --log-file arrow.log -r canu-high/heterosigma.contigs.fasta -o polish
 arrow -j 4 --log-file arrow.log -r canu-75/heterosigma.contigs.fasta -o polish/canu-75_polished.fasta ha.aln.bam
 ```
 
+## Canu using highest generated reads
+
 ```
 ~/bin/canu/*/bin/canu -d ha -p heterosigma -pacbio-raw originals/heterosigma_2.fastq genomeSize=150m minMemory=24
+```
+
+## [Racon](https://github.com/isovic/racon)
+Adapted from [here](https://inf-biox121.readthedocs.io/en/2017/index.html)
+### Overlapping with minimap
+```
+~/bin/racon/tools/minimap/minimap -Sw5 -L100 -m0 -t4 ../originals/heterosigma_2.fastq ../originals/heterosigma_2.fastq | gzip -1 > heterosigma_2.paf.gz
+```
+*Note:* During mapping, reads are mapped against themselves, hence being in the command twice.
+
+### Assembly with miniasm
+```
+~/bin/racon/tools/miniasm/miniasm -f ../originals/heterosigma_2.fastq heterosigma_2.paf.gz > heterosigma_2.gfa
+```
+Convert GFA to fasta file:
+```
+head -n 1 heterosigma_2.gfa | awk '{print ">"$2; print $3}' > heterosigma.raw_assembly.fasta
+```
+
+### Correction with Racon
+Map original reads against raw assembly:
+```
+~/bin/racon/tools/minimap/minimap heterosigma.raw_assembly.fasta ../originals/heterosigma_2.fastq > heterosigma.raw_assembly.reads_mapped.paf
+```
+
+Correcting with racon:
+```
+~/bin/racon/bin/racon -t 4 ../originals/heterosigma_2.fastq heterosigma.raw_assembly.reads_mapped.paf heterosigma.raw_assembly.fasta heterosigma.corrected.fasta
 ```
