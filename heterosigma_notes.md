@@ -81,7 +81,43 @@ mecat2canu -trim-assemble -p heterosigma -d mecat genomeSize=150m ErrorRate=0.02
 ```
 Low number of assembled contigs.  Perhaps from issues with coverage?  Will try assembly with canu at 110 Mbp to see if that improves.
 
-## Canu 100 Mbp
+## Canu 110 Mbp
 ```
-~/bin/canu/*/bin/canu -correct -d canu-100 -p heterosigma -pacbio-raw originals/heterosigma.fastq genomeSize=110m maxMemory=31
+~/bin/canu/*/bin/canu -correct -d canu-110 -p heterosigma -pacbio-raw originals/heterosigma.fastq genomeSize=110m maxMemory=31
+```
+
+## Canu 75 Mbp
+```
+~/bin/canu/*/bin/canu -correct -d canu-75 -p heterosigma -pacbio-raw originals/heterosigma.fastq genomeSize=75m maxMemory=31
+~/bin/canu/*/bin/canu -trim -d canu-75 -p heterosigma -pacbio-corrected canu-75/heterosigma.correctedReads.fasta.gz genomeSize=75m maxMemory=31
+~/bin/canu/*/bin/canu -assemble -d canu-75 -p heterosigma -pacbio-corrected canu-75/heterosigma.trimmedReads.fasta.gz genomeSize=75m maxMemory=31 correctedErrorRate=0.105
+~/bin/canu/*/bin/canu -assemble -d canu-75 -p heterosigma -pacbio-corrected canu-75-standard/heterosigma.trimmedReads.fasta.gz genomeSize=75m maxMemory=31
+```
+
+## Begin alignment and polishing
+```
+bax2bam m170304_055253_42157_c101187342550000001823278408081750_s1_p0.1.bax.h5 m170304_055253_42157_c101187342550000001823278408081750_s1_p0.2.bax.h5 m170304_055253_42157_c101187342550000001823278408081750_s1_p0.3.bax.h5 -o m170304_055253_42157_c101187342550000001823278408081750_s1_p0
+pbalign --tmpDir=tmp --minAccuracy=0.75 --minLength=50 --minAnchorSize=12 --maxDivergence=30 --concordant --algorithm=blasr --algorithmOptions=--useQuality --maxHits=1 --hitPolicy=random --seed=1 --nproc=4 originals/bas/m170304_055253_42157_c101187342550000001823278408081750_s1_p0.subreads.bam canu/heterosigma.contigs.fasta ha.aln.bam
+bamtools stats -in ha.aln.bam
+**********************************************
+Stats for BAM file(s):
+**********************************************
+
+Total reads:       135818
+Mapped reads:      135818       (100%)
+Forward strand:    67489        (49.6908%)
+Reverse strand:    68329        (50.3092%)
+Failed QC:         0    (0%)
+Duplicates:        0    (0%)
+Paired-end reads:  0    (0%)
+samtools sort ha.aln.bam -o ha.sorted.bam
+samtools index ha.sorted.bam ha.index
+samtools faidx canu/heterosigma.contigs.fasta
+arrow -j 4 --log-file arrow.log -r canu/heterosigma.contigs.fasta -o polish/canu_polished.fasta ha.aln.bam
+arrow -j 4 --log-file arrow.log -r canu-high/heterosigma.contigs.fasta -o polish/canu-high_polished.fasta ha.aln.bam
+arrow -j 4 --log-file arrow.log -r canu-75/heterosigma.contigs.fasta -o polish/canu-75_polished.fasta ha.aln.bam
+```
+
+```
+~/bin/canu/*/bin/canu -d ha -p heterosigma -pacbio-raw originals/heterosigma_2.fastq genomeSize=150m minMemory=24
 ```
