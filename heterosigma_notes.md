@@ -138,7 +138,7 @@ Adapted from [here](https://inf-biox121.readthedocs.io/en/2017/index.html)
 ```
 Convert GFA to fasta file:
 ```
-head -n 1 heterosigma_2.gfa | awk '{print ">"$2; print $3}' > heterosigma.raw_assembly.fasta
+awk '/^S/{print ">"$2"\n"$3}' heterosigma_2.gfa | fold > heterosigma.raw_assembly.fasta
 ```
 
 ### Correction with Racon
