@@ -151,3 +151,9 @@ Correcting with racon:
 ```
 ~/bin/racon/bin/racon -t 4 ../originals/heterosigma_2.fastq heterosigma.raw_assembly.reads_mapped.paf heterosigma.raw_assembly.fasta heterosigma.corrected.fasta
 ```
+Very few contigs produced.
+
+## Canu at 55 Mbp
+```
+~/bin/canu/*/bin/canu -d ha-55 -p heterosigma -pacbio-raw originals/heterosigma.fastq genomeSize=55m minMemory=24
+```
