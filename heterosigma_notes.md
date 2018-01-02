@@ -157,3 +157,12 @@ Very few contigs produced.
 ```
 ~/bin/canu/*/bin/canu -d ha-55 -p heterosigma -pacbio-raw originals/heterosigma.fastq genomeSize=55m minMemory=24
 ```
+
+## Current thoughts
+It seems all assembly attempts, except RACON, make a chloroplast and mitochrondria genome for *Heterosigma* (~187,000 and ~37,000 bp).  Removing those reads from the assembly should yield a better assembly for the genome.  Data from Roseann Catalico will be used to remove those reads from the data (CCMP452, isolated Long Island Sound).
+
+### Chloroplast removal
+```
+~/bin/bbmap/mapPacBio.sh in=originals/heterosigma.fastq out=cleanup/ha_minus_chloro.fasta ref=organelles/ha_chloroplast.fasta
+~/bin/Organelle_PBA/OrganelleRef_PBA -i /media/science/heterosigma/originals/heterosigma.fastq -r /media/science/heterosigma/organelles/ha_chloroplast.fasta -o /media/science/heterosigma/chloro_out
+```
