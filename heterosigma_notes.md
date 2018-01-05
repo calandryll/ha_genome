@@ -163,6 +163,10 @@ It seems all assembly attempts, except RACON, make a chloroplast and mitochrondr
 
 ### Chloroplast removal
 ```
-~/bin/bbmap/mapPacBio.sh in=originals/heterosigma.fastq out=cleanup/ha_minus_chloro.fasta ref=organelles/ha_chloroplast.fasta
 ~/bin/Organelle_PBA/OrganelleRef_PBA -i /media/science/heterosigma/originals/heterosigma.fastq -r /media/science/heterosigma/organelles/ha_chloroplast.fasta -o /media/science/heterosigma/chloro_out
+```
+
+### Mitochonrida removal
+```
+~/bin/Organelle_PBA/OrganelleRef_PBA -i /media/science/heterosigma/originals/heterosigma.fastq -r /media/science/heterosigma/organelles/ha_mito.fasta -o /media/science/heterosigma/mito_out
 ```
