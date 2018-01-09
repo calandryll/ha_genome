@@ -170,3 +170,10 @@ It seems all assembly attempts, except RACON, make a chloroplast and mitochrondr
 ```
 ~/bin/Organelle_PBA/OrganelleRef_PBA -i /media/science/heterosigma/originals/heterosigma.fastq -r /media/science/heterosigma/organelles/ha_mito.fasta -o /media/science/heterosigma/mito_out
 ```
+
+Entire reads that mapped to the organelles were removed with the organelle_strip.py  Assembly at 150 Mbp will be attempted again with the cleaned data.
+
+## Canu with Cleaned reads
+```
+~/bin/canu/*/bin/canu -d ha-150 -p heterosigma -pacbio-raw originals/heterosigma_cleaned.fasta genomeSize=150m minMemory=24
+```
