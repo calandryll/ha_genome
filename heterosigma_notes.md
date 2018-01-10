@@ -177,3 +177,7 @@ Entire reads that mapped to the organelles were removed with the organelle_strip
 ```
 ~/bin/canu/*/bin/canu -d ha-150 -p heterosigma -pacbio-raw originals/heterosigma_cleaned.fasta genomeSize=150m minMemory=24
 ```
+```
+~/bin/canu/*/bin/canu -d ha-150-cor80 -p heterosigma -pacbio-raw originals/heterosigma_cleaned.fasta genomeSize=150m minMemory=24 corOutCoverage=80 corMhapSensitivity=normal
+```
+Will need cleaning ever further for assembly
