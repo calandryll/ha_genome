@@ -177,6 +177,14 @@ Entire reads that mapped to the organelles were removed with the organelle_strip
 ```
 ~/bin/canu/*/bin/canu -d ha-150 -p heterosigma -pacbio-raw originals/heterosigma_cleaned.fasta genomeSize=150m minMemory=24
 ```
+
+## Removal of bacterial contamination
+Contigs from ha-150 will be blasted and results will be examined for bacterial contamination.  Any contigs will then be aligned using blasr against the reads and removed.  Organelles will be run again using Organelle_PBA to ensure no bacterial reads contaminated those assemblies, i.e. ~26,000 insert.
+```
+./deconseq.pl -f ../heterosigma.fasta -dbs bact
+python scripts/fasta_search.py ha-150/heterosigma.contigs.fasta ha-150.txt
+```
+
 ```
 ~/bin/canu/*/bin/canu -d ha-150-cor80 -p heterosigma -pacbio-raw originals/heterosigma_cleaned.fasta genomeSize=150m minMemory=24 corOutCoverage=80 corMhapSensitivity=normal
 ```
