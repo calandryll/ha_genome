@@ -20,7 +20,7 @@
 # Allow manipulating of FASTA file
 from Bio import SeqIO
 # Allows for internet blast search
-from Bio.Blast import NcbiblastxCommandline
+from Bio.Blast import NCBIWWW
 # Parsing of BLAST results
 from Bio.Blast import NCBIXML
 
@@ -35,7 +35,7 @@ parser.add_argument("out_file", help="filename for output of BLAST search result
 parser.add_argument("-b", "--blast", help="what type of blast to use (Defaults to blastn)", default='blastn')
 parser.add_argument("-t", "--thres", help="e-value threshold, ignores any numbers above this number (Defaults to 0.005)", type=int, default=0.005)
 parser.add_argument("-hl", "--hitlist", help="how many alignments do you want parsed into the file (Defaults to 10)", default=10)
-parser.add_argument("-d", "--database", help="what database to search against (nr or swissprot) (Defaults to nr)", default='nr')
+parser.add_argument("-d", "--database", help="what database to search against (nt, nr or swissprot) (Defaults to nt)", default='nt')
 args = parser.parse_args()
 
 
@@ -55,7 +55,7 @@ wfile.write("Sequence Name\tGI\tTitle\tLength\te-value\tQuery Start\tQuery End\t
 # Begin the loop to search each individual record. Each iteration of the loop will search a new sequence
 for i in range(len(records)):
 	print "Blasting %s..." % (records[i].id)
-	blarg = NcbiblastxCommandline(cmd = args.blast, query = records[i].seq, db = args.database, evalue = args.thres)
+	blarg = NCBIWWW.qblast(program = args.blast, sequence = records[i].seq, database = args.database, expect = args.thres, hitlist_size = args.hl)
 
 	# Take Search and output to file
 	blast_records = NCBIXML.parse(result_handle)
