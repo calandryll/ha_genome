@@ -55,7 +55,7 @@ wfile.write("Sequence Name\tGI\tTitle\tLength\te-value\tQuery Start\tQuery End\t
 # Begin the loop to search each individual record. Each iteration of the loop will search a new sequence
 for i in range(len(records)):
 	print "Blasting %s..." % (records[i].id)
-	blarg = NCBIWWW.qblast(program = args.blast, sequence = records[i].seq, database = args.database, expect = args.thres, hitlist_size = args.hl)
+	blarg = NCBIWWW.qblast(program = args.blast, sequence = records[i].seq, database = args.database, expect = args.thres, hitlist_size = 10)
 
 	# Take Search and output to file
 	blast_records = NCBIXML.parse(result_handle)
