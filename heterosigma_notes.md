@@ -180,9 +180,15 @@ Entire reads that mapped to the organelles were removed with the organelle_strip
 
 ## Removal of bacterial contamination
 Contigs from ha-150 will be blasted and results will be examined for bacterial contamination.  Any contigs will then be aligned using blasr against the reads and removed.  Organelles will be run again using Organelle_PBA to ensure no bacterial reads contaminated those assemblies, i.e. ~26,000 insert.
+
+[Deconseq](http://deconseq.sourceforge.net/) allows mapping of reads to a bacterial database, using their data set.  Default settings were used and removed all reads that mapped at least 80%.
 ```
 ./deconseq.pl -f ../heterosigma.fasta -dbs bact
-python scripts/fasta_search.py ha-150/heterosigma.contigs.fasta ha-150.txt
+mv 1515608796_clean.fa ../heterosigma_bac_clean.fasta
+```
+## Chloroplast assembly
+```
+~/bin/Organelle_PBA/OrganelleRef_PBA -i /media/science/heterosigma/originals/heterosigma_bac_clean.fasta -r /media/science/heterosigma/organelles/ha_chloroplast_452.fasta -o /media/science/heterosigma/chloro_out -t fasta
 ```
 
 ```
