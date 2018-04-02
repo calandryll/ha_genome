@@ -9,10 +9,4 @@ mv 1515608796_clean.fa ../heterosigma_bac_clean.fasta
 ```
 
 ### Mapping of chloroplast genome
-Bacterial cleaned reads were mapped to [*Heterosigma akashiwo* strain CCMP 452](https://www.ncbi.nlm.nih.gov/nuccore/EU168191.1) using [minimap2](https://github.com/lh3/minimap2).
-```bash
-rebaler /media/science/heterosigma/organelles/ha_mito.fasta /media/science/heterosigma/originals/heterosigma_bac_clean.fasta --keep > mito_452.fasta
-```
-```bash
-rebaler /media/science/heterosigma/organelles/ha_chloroplast_452.fasta /media/science/heterosigma/originals/heterosigma_bac_clean.fasta --keep > rebaler4.fasta
-```
+Bacterial cleaned reads were mapped to [*Heterosigma akashiwo* strain CCMP 452](https://www.ncbi.nlm.nih.gov/nuccore/EU168191.1) using [Rebaler](https://github.com/rrwick/Rebaler).  See [chloroplast assembly notes](https://github.com/calandryll/ha_genome/chloroplast_assembly.md) for more information.
