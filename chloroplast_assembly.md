@@ -1,5 +1,18 @@
 ## Chloroplast assembly from bacterial cleaned reads using [Rebaler](https://github.com/rrwick/Rebaler)
 
+| Strain | Chloroplast Size | Mapped Size | Mapping Quality |
+| ------ | ---------------- | ----------- | --------------- |
+| **CCAP934/8** | 159,918 | 161,074 | 247,985,853 |
+| **EHUSP01** | 160,150 | 161,359 | 258,689,686 |
+| **CCAP934/4** | 160,099 | 161,266 | 256,062,343 |
+| **CCMP2274** | 159,321 | 161,559 | 258,421,150 |
+| **CCMP3374** | 160,152 | 161,459 | 258,400,840 |
+| **HaFk01** | 159,492 | 160,885 | 266,454,879 |
+| **CCMP1596** | 159,691 | 160,823 | 262,937,606 |
+| **CCMP452** | 160,149 | 161,358 | 258,688,376 |
+| **NIES293** | 159,370 | 160,307 | 261,757,024 |
+
+
 ### LC269918.1 (CCAP934/8)
 ```bash
 rebaler --keep /media/science/heterosigma/organelles/LC269918.1.fasta /media/science/heterosigma/originals/heterosigma_bac_clean.fasta > LC269918.fasta
