@@ -34,5 +34,7 @@ canu \
 	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
 	genomeSize=150m \
 	corOutCoverage=80 \
-	corMhapSensitivity=normal
+	corMhapSensitivity=normal \
+	minReadLength=500
 ```
+A minimum read length of 500 was added to decrease the number of reads tossed from analysis, from ~9% to ~3%.
