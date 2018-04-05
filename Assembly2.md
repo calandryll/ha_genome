@@ -25,4 +25,14 @@ python scripts/fasta_cleaner.py originals/heterosigma_wout_bac_mito.fasta assemb
 A total of 52,255 reads were removed from **heterosigma.fasta** for all data clean-up.
 
 ## Genome Assembly
+[canu](https://github.com/marbl/canu) was updated to 1.7 before being run.
 
+```bash
+canu \
+	-d ha-150-cor80 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
+	genomeSize=150m \
+	corOutCoverage=80 \
+	corMhapSensitivity=normal
+```
