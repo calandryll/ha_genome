@@ -55,6 +55,6 @@ canu \
 ### Assembly Statistics
 
 | Assembly | # of Contigs | N50 | Est. Genome Size |
-| -------- | ------------ | ---- | ---------------- |
+| -------- | ------------ | --- | ---------------- |
 | Ha-150-cor80 | 14,429 | 12093 | 150 Mbp |
 | Ha-110-cor80 |  |  | 110 Mbp |
