@@ -27,6 +27,7 @@ A total of 52,255 reads were removed from **heterosigma.fasta** for all data cle
 ## Genome Assembly
 [canu](https://github.com/marbl/canu) was updated to 1.7 before being run.
 
+### 150 Mbp Estimated Genome Size
 ```bash
 canu \
 	-d ha-150-cor80 \
@@ -38,3 +39,22 @@ canu \
 	minReadLength=500
 ```
 A minimum read length of 500 was added to decrease the number of reads tossed from analysis, from ~9% to ~3%.
+
+### 110 Mbp Estimated Genome Size
+```bash
+canu \
+	-d ha-110-cor80 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
+	genomeSize=110m \
+	corOutCoverage=80 \
+	corMhapSensitivity=normal \
+	minReadLength=500
+```
+
+### Assembly Statistics
+
+| Assembly | # of Contigs | N50 | Est. Genome Size |
+| -------- | ------------ | ---- | ---------------- |
+| Ha-150-cor80 | 14,429 | 12093 | 150 Mbp |
+| Ha-110-cor80 |  |  | 110 Mbp |
