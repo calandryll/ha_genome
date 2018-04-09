@@ -52,9 +52,35 @@ canu \
 	minReadLength=500
 ```
 
+### 500 Mbp Estimated Genome Size
+```bash
+canu \
+	-d ha-500-cor80 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
+	genomeSize=500m \
+	corOutCoverage=80 \
+	corMhapSensitivity=normal \
+	minReadLength=500
+```
+
+### 1500 Mbp Estimated Genome Size
+```bash
+canu \
+	-d ha-500-cor80 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
+	genomeSize=1500m \
+	corOutCoverage=80 \
+	corMhapSensitivity=normal \
+	minReadLength=500
+```
+
 ### Assembly Statistics
 
-| Assembly | # of Contigs | N50 | Est. Genome Size |
-| -------- | :----------: | :-: | ---------------: |
-| Ha-150-cor80 | 14,429 | 12,093 | 150 Mbp |
-| Ha-110-cor80 | 14,429 | 12,093 | 110 Mbp |
+| Assembly | # of Contigs | N50 | Longest Contig | Est. Genome Size |
+| -------- | :----------: | :-: | :------------: | ---------------: |
+| Ha-110-cor80 | 14,429 | 12,093 | 94,712 | 110 Mbp |
+| Ha-150-cor80 | 14,429 | 12,093 | 94,712 | 150 Mbp |
+| Ha-500-cor80 | 17,111 | 14,378 | 108,460 | 500 Mbp |
+| Ha-1500-cor80 | 17,103 | 14,378 | 108,460 | 1500 Mbp |
