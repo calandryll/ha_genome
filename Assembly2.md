@@ -64,6 +64,18 @@ canu \
 	minReadLength=500
 ```
 
+### 400 Mbp Estimated Genome Size
+```bash
+canu \
+	-d ha-400-cor80 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
+	genomeSize=400m \
+	corOutCoverage=80 \
+	corMhapSensitivity=normal \
+	minReadLength=500
+```
+
 ### 500 Mbp Estimated Genome Size
 ```bash
 canu \
@@ -95,5 +107,33 @@ canu \
 | Ha-110-cor80 | 14,429 | 12,093 | 94,712 | 110 Mbp |
 | Ha-150-cor80 | 14,429 | 12,093 | 94,712 | 150 Mbp |
 | Ha-300-cor80 | 14,406 | 12,096 | 94,712 | 300 Mbp |
+| Ha-400-cor80 |  |  |  | 400 Mbp |
 | Ha-500-cor80 | 17,111 | 14,378 | 108,460 | 500 Mbp |
 | Ha-1500-cor80 | 17,103 | 14,378 | 108,460 | 1500 Mbp |
+
+## Organelle Assembly using [canu](https://github.com/marbl/canu)
+Reads selected during test assembly using [Rebaler](https://github.com/rrwick/Rebaler) were used for assembly using canu.
+
+```bash
+canu \
+	-d ha-chloro \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/chloroplast_reads.fasta \
+	genomeSize=159900 \
+	corOutCoverage=80 \
+	corMhapSensitivity=normal \
+	minReadLength=250
+```
+For the chloroplast reads: Out of 43517 reads, 43111 are greater than 250 bp, 41862 are greater than 500 bp.
+
+```bash
+canu \
+	-d ha-chloro \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/mito_reads.fasta \
+	genomeSize=38690 \
+	corOutCoverage=80 \
+	corMhapSensitivity=normal \
+	minReadLength=500
+```
+Only 8 reads less than 500 bp.

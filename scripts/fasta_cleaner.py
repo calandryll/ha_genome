@@ -6,10 +6,11 @@ import argparse
 
 # Read and parse the arguments from the command line
 parser =  argparse.ArgumentParser()
-parser.add_argument("-v", "--version", action="version", version='Version 0.6')
-parser.add_argument("original_fasta", help="location of FASTA file")
-parser.add_argument("in_file", help="filename of sequence names")
-parser.add_argument("out_file", help="filename for output of sequences")
+parser.add_argument('-v', '--version', action='version', version='Version 0.6')
+parser.add_argument('--select', help='Remove or select for reads', action='store_true')
+parser.add_argument('original_fasta', help='location of FASTA file')
+parser.add_argument('in_file', help='PAF file')
+parser.add_argument('out_file', help='filename for output of sequences')
 args = parser.parse_args()
 
 input_handle = open(args.in_file, 'rU')
@@ -24,5 +25,9 @@ for line in input_handle:
 #print(identifiers)
 records = SeqIO.parse(args.original_fasta, 'fasta')
 for record in records:
-	if record.id not in identifiers:
-		SeqIO.write(record, output_handle, 'fasta')
+	if args.select:
+		if record.id in identifiers:
+			SeqIO.write(record, output_handle, 'fasta')
+	else:
+		if record.id not in identifiers:
+			SeqIO.write(record, output_handle, 'fasta')
