@@ -107,7 +107,7 @@ canu \
 | Ha-110-cor80 | 14,429 | 12,093 | 94,712 | 110 Mbp |
 | Ha-150-cor80 | 14,429 | 12,093 | 94,712 | 150 Mbp |
 | Ha-300-cor80 | 14,406 | 12,096 | 94,712 | 300 Mbp |
-| Ha-400-cor80 |  |  |  | 400 Mbp |
+| Ha-400-cor80 | 17,111 | 14,378 | 108,460 | 400 Mbp |
 | Ha-500-cor80 | 17,111 | 14,378 | 108,460 | 500 Mbp |
 | Ha-1500-cor80 | 17,103 | 14,378 | 108,460 | 1500 Mbp |
 
@@ -122,7 +122,7 @@ canu \
 	genomeSize=159900 \
 	corOutCoverage=80 \
 	corMhapSensitivity=normal \
-	minReadLength=250
+	minReadLength=500
 ```
 For the chloroplast reads: Out of 43517 reads, 43111 are greater than 250 bp, 41862 are greater than 500 bp.
 
@@ -137,3 +137,8 @@ canu \
 	minReadLength=500
 ```
 Only 8 reads less than 500 bp.
+
+| Assembly | Assembly Size | Median Assembly Size | N50 |
+| -------- | :-----------: | :------------------: | :-: |
+| ha-chloro | | 159,918 | |
+| ha-mito | | 38,690 | |
