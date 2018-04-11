@@ -64,6 +64,18 @@ canu \
 	minReadLength=500
 ```
 
+### 350 Mbp Estimated Genome Size
+```bash
+canu \
+	-d ha-350-cor80 \
+	-p heterosigma \
+	-pacbio-raw /medi/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
+	genomeSize=350m \
+	corOutCoverage=80 \
+	corMhapSensitivity=normal \
+	minReadLength=500
+```
+
 ### 400 Mbp Estimated Genome Size
 ```bash
 canu \
@@ -107,6 +119,7 @@ canu \
 | Ha-110-cor80 | 14,429 | 12,093 | 94,712 | 110 Mbp |
 | Ha-150-cor80 | 14,429 | 12,093 | 94,712 | 150 Mbp |
 | Ha-300-cor80 | 14,406 | 12,096 | 94,712 | 300 Mbp |
+| Ha-350-cor80 |   |   |   | 350 Mbp |
 | Ha-400-cor80 | 17,111 | 14,378 | 108,460 | 400 Mbp |
 | Ha-500-cor80 | 17,111 | 14,378 | 108,460 | 500 Mbp |
 | Ha-1500-cor80 | 17,103 | 14,378 | 108,460 | 1500 Mbp |
