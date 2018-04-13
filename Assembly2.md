@@ -172,6 +172,7 @@ Only 8 reads less than 500 bp.
 ## Validation of Genome Assembly
 Validation will be done using Benchmarking Universal Single-Copy Orthologs ([BUSCO](http://busco.ezlab.org/)) and Quality Assessment Tool for Genome Assemblies ([QUAST](http://quast.sourceforge.net/quast)), using Ha-375-cor80 files.
 
+### BUSCO
 ```bash
 busco \
 	-i ../fasta/ha-375-cor80.fasta \
@@ -203,3 +204,10 @@ busco \
 ```
 
 **BUSCO may not be usable due to no closely related species in the data set.**
+
+### QUAST
+Reads were mapped to Ha-375-cor80 using [minimap2](https://github.com/lh3/minimap2)
+
+```bash
+minimap2 -ax map-pb /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta -t 20 > ha-375-cor80_aln.sam
+```
