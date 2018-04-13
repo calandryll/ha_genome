@@ -169,6 +169,13 @@ Only 8 reads less than 500 bp.
 | ha-chloro | 187,350 | 159,918 | 187,350 |
 | ha-mito | | 38,690 | |
 
+### Polishing of Genome
+Reads were mapped to Ha-375-cor80 using [minimap2](https://github.com/lh3/minimap2)
+
+```bash
+minimap2 -ax map-pb /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta -t 20 > ha-375-cor80_aln.sam
+```
+
 ## Validation of Genome Assembly
 Validation will be done using Benchmarking Universal Single-Copy Orthologs ([BUSCO](http://busco.ezlab.org/)) and Quality Assessment Tool for Genome Assemblies ([QUAST](http://quast.sourceforge.net/quast)), using Ha-375-cor80 files.
 
@@ -206,8 +213,3 @@ busco \
 **BUSCO may not be usable due to no closely related species in the data set.**
 
 ### QUAST
-Reads were mapped to Ha-375-cor80 using [minimap2](https://github.com/lh3/minimap2)
-
-```bash
-minimap2 -ax map-pb /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta -t 20 > ha-375-cor80_aln.sam
-```
