@@ -174,6 +174,14 @@ Reads were mapped to Ha-375-cor80 using [minimap2](https://github.com/lh3/minima
 
 ```bash
 minimap2 -ax map-pb /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta -t 20 > ha-375-cor80_aln.sam
+samtools -b -S ha-375-cor80_aln.sam > ha-375-cor80_aln.bam
+samtools sort ha-375-cor80_aln.bam ha-375-cor80_sorted
+samtools index ha-375-cor80_sorted.bam
+```
+
+arrow requires a pbalign header.
+```bash
+pbalign /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta pbalign.sam --nproc 24
 ```
 
 ## Validation of Genome Assembly
