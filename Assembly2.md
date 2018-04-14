@@ -170,7 +170,7 @@ Only 8 reads less than 500 bp.
 | ha-mito | | 38,690 | |
 
 ### Polishing of Genome
-Reads were mapped to Ha-375-cor80 using [minimap2](https://github.com/lh3/minimap2)
+~~Reads were mapped to Ha-375-cor80 using [minimap2](https://github.com/lh3/minimap2)
 
 ```bash
 minimap2 -ax map-pb /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta -t 20 > ha-375-cor80_aln.sam
@@ -182,7 +182,11 @@ samtools index ha-375-cor80_sorted.bam
 arrow requires a pbalign header.
 ```bash
 pbalign /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta pbalign.sam --nproc 24
+samtools view -b -S align/pbalign.sam > align/pbalign.bam
+samtools sort pbalign.bam -o pbalign_sorted.bam --threads 24
+samtools index align/pbalign_sorted.bam
 ```
+~~
 
 ## Validation of Genome Assembly
 Validation will be done using Benchmarking Universal Single-Copy Orthologs ([BUSCO](http://busco.ezlab.org/)) and Quality Assessment Tool for Genome Assemblies ([QUAST](http://quast.sourceforge.net/quast)), using Ha-375-cor80 files.
