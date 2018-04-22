@@ -170,31 +170,33 @@ Only 8 reads less than 500 bp.
 | ha-mito | | 38,690 | |
 
 ### Polishing of Genome
-~~Reads were mapped to Ha-375-cor80 using [minimap2](https://github.com/lh3/minimap2)
-
+Bax files for each run were merged into a single bam file.
 ```bash
-minimap2 -ax map-pb /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta -t 20 > ha-375-cor80_aln.sam
-samtools -b -S ha-375-cor80_aln.sam > ha-375-cor80_aln.bam
-samtools sort ha-375-cor80_aln.bam ha-375-cor80_sorted
-samtools index ha-375-cor80_sorted.bam
+bamtools merge -in ha.subreads.bam -in ha1.subreads.bam -in ha2.subreads.bam -in ha3.subreads.bam -in ha4.subreads.bam -in ha5.subreads.bam -in ha6.subreads.bam -out heterosigma.bam
 ```
 
-arrow requires a pbalign header.
+Reads associated with bacteria and organelles were filtered from the combined bam file.
 ```bash
-pbalign /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta pbalign.sam --nproc 24
-samtools view -b -S align/pbalign.sam > align/pbalign.bam
-samtools sort pbalign.bam -o pbalign_sorted.bam --threads 24
-samtools index align/pbalign_sorted.bam
+samtools view -h bas/heterosigma.bam | grep -vf bac_mito_chloro_reads.txt | samtools view -bS -o heterosigma_wout_bac_organelles.bam -
 ```
-~~
+
+#### Align using pbalign
+```bash
+pbalign /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.bam /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta heterosigma_aligned.bam --nproc 24
+```
+
+#### Polishing using arrow
+```bash
+arrow align/heterosigma_aligned.bam -r /media/science/heterosigma/assemblies/fasta/ha-375-cor80.fasta -o ha-375-consensus.fasta -o ha-375-variants.gff -j 24
+```
 
 ## Validation of Genome Assembly
-Validation will be done using Benchmarking Universal Single-Copy Orthologs ([BUSCO](http://busco.ezlab.org/)) and Quality Assessment Tool for Genome Assemblies ([QUAST](http://quast.sourceforge.net/quast)), using Ha-375-cor80 files.
+Validation will be done using Benchmarking Universal Single-Copy Orthologs ([BUSCO](http://busco.ezlab.org/)) and Quality Assessment Tool for Genome Assemblies ([QUAST](http://quast.sourceforge.net/quast)), using Ha-375-consensus files.
 
 ### BUSCO
 ```bash
 busco \
-	-i ../fasta/ha-375-cor80.fasta \
+	-i ../fasta/ha-375-consensus.fasta \
 	-o protist \
 	-m geno \
 	-l /media/science/busco/protists_ensembl \
@@ -204,7 +206,7 @@ busco \
 
 ```bash
 busco \
-	-i ../fasta/ha-375-cor80.fasta \
+	-i ../fasta/ha-375-consensus.fasta \
 	-o alevolata \
 	-m geno \
 	-l /media/science/busco/alveolata_stramenophiles_ensembl \
@@ -214,7 +216,7 @@ busco \
 
 ```bash
 busco \
-	-i ../fasta/ha-375-cor80.fasta \
+	-i ../fasta/ha-375-consensus.fasta \
 	-o eukaryotes \
 	-m geno \
 	-l /media/science/busco/eukaryota_odb9 \
@@ -225,3 +227,15 @@ busco \
 **BUSCO may not be usable due to no closely related species in the data set.**
 
 ### QUAST
+```bash
+quast -o quast -t 24 ../polishing/ha-375-consensus.fasta -e -f --glimmer
+quast -o quast_gm -t 24 ../polishing/ha-375-consensus.fasta -e -f
+```
+
+## Annotation
+Assembly from the [transcriptome project](https://github.com/calandryll/transcriptome2) were used to aid in annotation of the genome (N50: 1399, # of contigs: 14025).  Additionally the current release (2018_03) of the [Uniprot/Swiss-Prot](http://www.uniprot.org/) database was used.
+
+```bash
+cat Control_2_unmapped.fastq Control_3_unmapped.fastq Control_4_unmapped.fastq > Control_unmapped.fastq
+seqtk seq -A Control_unmapped.fastq > Control_unmapped.fasta
+```
