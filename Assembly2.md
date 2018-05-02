@@ -149,6 +149,18 @@ canu \
 | Ha-500-cor80 | 17,111 | 14,378 | 108,460 | 500 Mbp |
 | Ha-1500-cor80 | 17,103 | 14,378 | 108,460 | 1500 Mbp |
 
+
+|     | 	Assembled	|	Unassembled	|
+| Run | Contigs | Total Length | Contigs | Total Length|
+|ha-110-cor80|14,429|117,019,216|226,606|815,546,757|
+|ha-150-cor80|14,429|117,019,214|226,606|815,546,757|
+|ha-300-cor80|14,406|116,912,066|226,610|815,719,009|
+|ha-350-cor80|14,405|116,910,303|226,611|815,751,413|
+|ha-375-cor80|17,111|167,636,982|271,448|1,067,751,062|
+|ha-400-cor80|17,111|167,636,982|271,448|1,067,751,062|
+|ha-500-cor80|17,111|167,634,515|271,448|1,067,751,062|
+|ha-1500-cor80|17,103|167,632,582|271,551|1,067,964,418|
+
 ## Organelle Assembly using [canu](https://github.com/marbl/canu)
 Reads selected during test assembly using [Rebaler](https://github.com/rrwick/Rebaler) were used for assembly using canu.
 
