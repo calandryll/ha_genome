@@ -150,8 +150,9 @@ canu \
 | Ha-1500-cor80 | 17,103 | 14,378 | 108,460 | 1500 Mbp |
 
 
-|     | 	Assembled	|	Unassembled	|
-| Run | Contigs | Total Length | Contigs | Total Length|
+|     | 	Assembled	||	Unassembled	||
+| Run | Contigs | Total Length | Contigs | Total Length |
+| --- | ------- | ------------ | ------- | ------------ |
 |ha-110-cor80|14,429|117,019,216|226,606|815,546,757|
 |ha-150-cor80|14,429|117,019,214|226,606|815,546,757|
 |ha-300-cor80|14,406|116,912,066|226,610|815,719,009|
