@@ -194,6 +194,26 @@ Only 8 reads less than 500 bp.
 | ha-chloro | 187,350 | 159,918 | 187,350 |
 | ha-mito | | 38,690 | |
 
+In the [canu](https://canu.readthedocs.io/en/latest/faq.html#my-circular-element-is-duplicated-has-overlap) FAQ, for overlap for circular constructs to user MUMmer.
+
+#### Chloroplast Overlap
+
+```bash
+nucmer -maxmatch -nosimplify heterosigma.contigs.fa heterosigma.contigs.fa
+show-coords -lrcTH out.delta
+```
+
+The first 27,962 bp will be removed from the contig.
+
+#### Mitochonrida Overlap
+
+```bash
+nucmer -maxmatch -nosimplify heterosigma.contigs.fa heterosigma.contigs.fa
+show-coords -lrcTH out.delta
+```
+
+The first XXXX bp will be removed from the contig.
+
 ### Polishing of Genome
 Bax files for each run were merged into a single bam file.
 ```bash
@@ -219,25 +239,6 @@ arrow align/heterosigma_aligned.bam -r /media/science/heterosigma/assemblies/fas
 Validation will be done using Benchmarking Universal Single-Copy Orthologs ([BUSCO](http://busco.ezlab.org/)) and Quality Assessment Tool for Genome Assemblies ([QUAST](http://quast.sourceforge.net/quast)), using Ha-375-consensus files.
 
 ### BUSCO
-```bash
-busco \
-	-i ../fasta/ha-375-consensus.fasta \
-	-o protist \
-	-m geno \
-	-l /media/science/busco/protists_ensembl \
-	-c 20 \
-	--long
-```
-
-```bash
-busco \
-	-i ../fasta/ha-375-consensus.fasta \
-	-o alevolata \
-	-m geno \
-	-l /media/science/busco/alveolata_stramenophiles_ensembl \
-	-c 20 \
-	--long
-```
 
 ```bash
 busco \
@@ -249,7 +250,7 @@ busco \
 	--long
 ```
 
-**BUSCO may not be usable due to no closely related species in the data set.**
+Approximately 3% are complete for the eukaryotic data set.  Running the assembled transcriptome (14,025 contigs) yields 45.8% complete, or the MMETSP0292 transcriptome assembly (30,419 contigs) is 54.8% complete.
 
 ### QUAST
 ```bash
