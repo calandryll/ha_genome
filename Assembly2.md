@@ -151,8 +151,7 @@ canu \
 
 ### Test
 
-|     | Assembled             || Unassembled            | 
-| Run | Contigs | Total Length | Contigs | Total Length |
+| Run | Assembled Contigs | Total Length | Unassembled Contigs | Total Length |
 | --- | ------- | ------------ | ------- | ------------ |
 | ha-110-cor80 | 14,429 | 117,019,216 | 226,606 | 815,546,757|
 | ha-150-cor80 | 14,429 | 117,019,214 | 226,606 | 815,546,757|
