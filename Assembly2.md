@@ -79,7 +79,7 @@ canu \
 ### 375 Mbp Estimated Genome Size
 ```bash
 canu \
-	-d ha-350-cor80 \
+	-d ha-375-cor80 \
 	-p heterosigma \
 	-pacbio-raw /medi/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
 	genomeSize=375m \
@@ -120,6 +120,18 @@ canu \
 	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
 	genomeSize=1500m \
 	corOutCoverage=80 \
+	corMhapSensitivity=normal \
+	minReadLength=500
+```
+
+### 375 Mbp Estimated Genome Size
+```bash
+canu \
+	-d ha-375-cor100 \
+	-p heterosigma \
+	-pacbio-raw /medi/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
+	genomeSize=375m \
+	corOutCoverage=100 \
 	corMhapSensitivity=normal \
 	minReadLength=500
 ```
