@@ -149,7 +149,7 @@ canu \
 | Ha-500-cor80 | 17,111 | 14,378 | 108,460 | 500 Mbp |
 | Ha-1500-cor80 | 17,103 | 14,378 | 108,460 | 1500 Mbp |
 
-### Test
+### Assembly Statistics
 
 | Run | Assembled<br> Contigs | Assembled<br>Total Length | Unassembled<br> Contigs | Unassembled<br>Total Length |
 | --- | :----: | :----------: | :-----: | :----------: |
@@ -161,6 +161,21 @@ canu \
 | Ha-400-cor80 | 17,111 | 167,636,982 | 271,448 | 1,067,751,062|
 | Ha-500-cor80 | 17,111 | 167,634,515 | 271,448 | 1,067,751,062|
 | Ha-1500-cor80 | 17,103 | 167,632,582 | 271,551 | 1,067,964,418|
+
+### 120 Mb Estimate Genome Size
+Reading discussion on the canu github, several suggestions to make changes for better assembly.  See [#254](https://github.com/marbl/canu/issues/254), [#221](https://github.com/marbl/canu/issues/221), and [FAQ](https://canu.readthedocs.io/en/latest/faq.html#my-assembly-continuity-is-not-good-how-can-i-improve-it).
+
+```bash
+canu \
+	-d ha-120 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
+	genomeSize=120m \
+	minReadLength=500 \
+	corMhapSensitivity=high \
+	corMinCoverage=0 \
+	corOutCoverage=100
+```
 
 ## Organelle Assembly using [canu](https://github.com/marbl/canu)
 Reads selected during test assembly using [Rebaler](https://github.com/rrwick/Rebaler) were used for assembly using canu.
