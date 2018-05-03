@@ -179,7 +179,7 @@ For the chloroplast reads: Out of 43517 reads, 43111 are greater than 250 bp, 41
 
 ```bash
 canu \
-	-d ha-chloro \
+	-d ha-mito \
 	-p heterosigma \
 	-pacbio-raw /media/science/heterosigma/originals/mito_reads.fasta \
 	genomeSize=38690 \
@@ -192,14 +192,14 @@ Only 8 reads less than 500 bp.
 | Assembly | Assembly Size | Median Assembly Size | N50 |
 | -------- | :-----------: | :------------------: | :-: |
 | ha-chloro | 187,350 | 159,918 | 187,350 |
-| ha-mito | | 38,690 | |
+| ha-mito | 35,951 | 38,690 | 35,951 |
 
 In the [canu](https://canu.readthedocs.io/en/latest/faq.html#my-circular-element-is-duplicated-has-overlap) FAQ, for overlap for circular constructs to user MUMmer.
 
 #### Chloroplast Overlap
 
 ```bash
-nucmer -maxmatch -nosimplify heterosigma.contigs.fa heterosigma.contigs.fa
+nucmer -maxmatch -nosimplify heterosigma.contigs.fasta heterosigma.contigs.fasta
 show-coords -lrcTH out.delta
 ```
 
@@ -208,11 +208,10 @@ The first 27,962 bp will be removed from the contig.
 #### Mitochonrida Overlap
 
 ```bash
-nucmer -maxmatch -nosimplify heterosigma.contigs.fa heterosigma.contigs.fa
+nucmer -maxmatch -nosimplify heterosigma.contigs.fasta heterosigma.contigs.fasta
 show-coords -lrcTH out.delta
 ```
 
-The first XXXX bp will be removed from the contig.
 
 ### Polishing of Genome
 Bax files for each run were merged into a single bam file.
