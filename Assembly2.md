@@ -151,7 +151,7 @@ canu \
 
 ### Assembly Statistics
 
-| Run | Assembled<br> Contigs | Assembled<br>Total Length | Unassembled<br> Contigs | Unassembled<br>Total Length |
+| Run | Assembled<br> Contigs | Assembled<br>Total Length (bp) | Unassembled<br> Contigs | Unassembled<br>Total Length (bp) |
 | --- | :----: | :----------: | :-----: | :----------: |
 | Ha-110-cor80 | 14,429 | 117,019,216 | 226,606 | 815,546,757|
 | Ha-150-cor80 | 14,429 | 117,019,214 | 226,606 | 815,546,757|
@@ -163,7 +163,7 @@ canu \
 | Ha-1500-cor80 | 17,103 | 167,632,582 | 271,551 | 1,067,964,418|
 
 ### 120 Mb Estimate Genome Size
-Reading discussion on the canu github, several suggestions to make changes for better assembly.  See [#254](https://github.com/marbl/canu/issues/254), [#221](https://github.com/marbl/canu/issues/221), and [FAQ](https://canu.readthedocs.io/en/latest/faq.html#my-assembly-continuity-is-not-good-how-can-i-improve-it).
+Reading discussion on the canu github, several suggestions to make changes for better assembly.  See [#254](https://github.com/marbl/canu/issues/254), [#221](https://github.com/marbl/canu/issues/221), and [FAQ](https://canu.readthedocs.io/en/latest/faq.html#my-assembly-continuity-is-not-good-how-can-i-improve-it).  Based on the Assembled Total Length (bp), an estimated genome size between 110 and 170 Mbp is probably appropriate to use.
 
 ```bash
 canu \
