@@ -194,6 +194,18 @@ canu \
 	corMhapSensitivity=normal \
 	minReadLength=500
 ```
+
+```bash
+canu \
+	-d ha-chloro \
+	-p chloroplast \
+	-pacbio-raw /media/science/heterosigma/originals/chloroplast_reads.fasta \
+	genomeSize=160000 \
+	minReadLength=500 \
+	corMhapSensitivity=high \
+	corMinCoverage=0 \
+	corOutCoverage=100
+```
 For the chloroplast reads: Out of 43517 reads, 43111 are greater than 250 bp, 41862 are greater than 500 bp.
 
 ```bash
