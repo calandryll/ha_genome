@@ -138,29 +138,29 @@ canu \
 
 ### Assembly Statistics
 
-| Assembly | # of Contigs | N50 | Longest Contig | Est. Genome Size |
-| -------- | :----------: | :-: | :------------: | ---------------: |
-| Ha-110-cor80 | 14,429 | 12,093 | 94,712 | 110 Mbp |
-| Ha-150-cor80 | 14,429 | 12,093 | 94,712 | 150 Mbp |
-| Ha-300-cor80 | 14,406 | 12,096 | 94,712 | 300 Mbp |
-| Ha-350-cor80 | 14,405 | 12,096 | 94,712  | 350 Mbp |
-| Ha-375-cor80 | 17,111 | 14,378 | 108,460 | 375 Mbp |
-| Ha-400-cor80 | 17,111 | 14,378 | 108,460 | 400 Mbp |
-| Ha-500-cor80 | 17,111 | 14,378 | 108,460 | 500 Mbp |
-| Ha-1500-cor80 | 17,103 | 14,378 | 108,460 | 1500 Mbp |
+| Assembly      | # of Contigs |  N50   | Longest Contig | Est. Genome Size |
+|:--------------|:------------:|:------:|:--------------:|-----------------:|
+| Ha-110-cor80  |    14,429    | 12,093 |     94,712     |          110 Mbp |
+| Ha-150-cor80  |    14,429    | 12,093 |     94,712     |          150 Mbp |
+| Ha-300-cor80  |    14,406    | 12,096 |     94,712     |          300 Mbp |
+| Ha-350-cor80  |    14,405    | 12,096 |     94,712     |          350 Mbp |
+| Ha-375-cor80  |    17,111    | 14,378 |    108,460     |          375 Mbp |
+| Ha-400-cor80  |    17,111    | 14,378 |    108,460     |          400 Mbp |
+| Ha-500-cor80  |    17,111    | 14,378 |    108,460     |          500 Mbp |
+| Ha-1500-cor80 |    17,103    | 14,378 |    108,460     |         1500 Mbp |
 
 ### Assembly Statistics
 
-| Run | Assembled<br> Contigs | Assembled<br>Total Length (bp) | Unassembled<br> Contigs | Unassembled<br>Total Length (bp) |
-| --- | :----: | :----------: | :-----: | :----------: |
-| Ha-110-cor80 | 14,429 | 117,019,216 | 226,606 | 815,546,757|
-| Ha-150-cor80 | 14,429 | 117,019,214 | 226,606 | 815,546,757|
-| Ha-300-cor80 | 14,406 | 116,912,066 | 226,610 | 815,719,009|
-| Ha-350-cor80 | 14,405 | 116,910,303 | 226,611 | 815,751,413|
-| Ha-375-cor80 | 17,111 | 167,636,982 | 271,448 | 1,067,751,062|
-| Ha-400-cor80 | 17,111 | 167,636,982 | 271,448 | 1,067,751,062|
-| Ha-500-cor80 | 17,111 | 167,634,515 | 271,448 | 1,067,751,062|
-| Ha-1500-cor80 | 17,103 | 167,632,582 | 271,551 | 1,067,964,418|
+| Run           | Assembled<br> Contigs | Assembled<br>Total Length (bp) | Unassembled<br> Contigs | Unassembled<br>Total Length (bp) |
+|:--------------|:---------------------:|:------------------------------:|:-----------------------:|:--------------------------------:|
+| Ha-110-cor80  |        14,429         |          117,019,216           |         226,606         |           815,546,757            |
+| Ha-150-cor80  |        14,429         |          117,019,214           |         226,606         |           815,546,757            |
+| Ha-300-cor80  |        14,406         |          116,912,066           |         226,610         |           815,719,009            |
+| Ha-350-cor80  |        14,405         |          116,910,303           |         226,611         |           815,751,413            |
+| Ha-375-cor80  |        17,111         |          167,636,982           |         271,448         |          1,067,751,062           |
+| Ha-400-cor80  |        17,111         |          167,636,982           |         271,448         |          1,067,751,062           |
+| Ha-500-cor80  |        17,111         |          167,634,515           |         271,448         |          1,067,751,062           |
+| Ha-1500-cor80 |        17,103         |          167,632,582           |         271,551         |          1,067,964,418           |
 
 ### 120 Mb Estimate Genome Size
 Reading discussion on the canu github, several suggestions to make changes for better assembly.  See [#254](https://github.com/marbl/canu/issues/254), [#221](https://github.com/marbl/canu/issues/221), and [FAQ](https://canu.readthedocs.io/en/latest/faq.html#my-assembly-continuity-is-not-good-how-can-i-improve-it).  Based on the Assembled Total Length (bp), an estimated genome size between 110 and 170 Mbp is probably appropriate to use.
@@ -176,6 +176,10 @@ canu \
 	corMinCoverage=0 \
 	corOutCoverage=100
 ```
+
+| Assembly | # of Contigs |   NG50/N50    | Longest Contig | Est. Genome Size |
+|:---------|:------------:|:-------------:|:--------------:|-----------------:|
+| Ha-120   |    15,760    | 15,708/13,551 |     124956     |          120 Mbp |
 
 ## Organelle Assembly using [canu](https://github.com/marbl/canu)
 Reads selected during test assembly using [Rebaler](https://github.com/rrwick/Rebaler) were used for assembly using canu.
