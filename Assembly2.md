@@ -180,9 +180,21 @@ canu \
 A test run using all reads at 150 Mbp.  Trying to increase the size of the mitochondrial assembly, now that I know what to look for and do afterwards.
 ```bash
 canu \
-	-d ha-150 \
+	-d ha-150-2 \
 	-p heterosigma \
-	-pacbio-raw /media/science/heterosigma/originals/heterosigma.fasta \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_bac_clean.fasta \
+	genomeSize=150m \
+	minReadLength=500 \
+	corMhapSensitivity=high \
+	corMinCoverage=0 \
+	corOutCoverage=100
+```
+Keeping the chloroplast reads in the original file may lead to excluding some of the known primers from the transcriptome.  A test at 150 Mbp without the chloroplast but including the mitochondria reads will be tested.
+```bash
+canu \
+	-d ha-150-3 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_chloroplast.fasta \
 	genomeSize=150m \
 	minReadLength=500 \
 	corMhapSensitivity=high \
@@ -190,10 +202,10 @@ canu \
 	corOutCoverage=100
 ```
 
-
 | Assembly | # of Contigs |   NG50/N50    | Longest Contig | Est. Genome Size |
 |:---------|:------------:|:-------------:|:--------------:|-----------------:|
-| Ha-120   |    15,760    | 15,708/13,551 |     124956     |          120 Mbp |
+| Ha-120   |    15,760    | 15,708/13,551 |    124,956     |          120 Mbp |
+| Ha-150-2 |    15,706    | 12,836/13,410 |    189,811     |          150 Mbp |
 
 ## Organelle Assembly using [canu](https://github.com/marbl/canu)
 Reads selected during test assembly using [Rebaler](https://github.com/rrwick/Rebaler) were used for assembly using canu.
