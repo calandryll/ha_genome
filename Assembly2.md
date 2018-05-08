@@ -177,23 +177,26 @@ canu \
 	corOutCoverage=100
 ```
 
+A test run using all reads at 150 Mbp.  Trying to increase the size of the mitochondrial assembly, now that I know what to look for and do afterwards.
+```bash
+canu \
+	-d ha-150 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma.fasta \
+	genomeSize=150m \
+	minReadLength=500 \
+	corMhapSensitivity=high \
+	corMinCoverage=0 \
+	corOutCoverage=100
+```
+
+
 | Assembly | # of Contigs |   NG50/N50    | Longest Contig | Est. Genome Size |
 |:---------|:------------:|:-------------:|:--------------:|-----------------:|
 | Ha-120   |    15,760    | 15,708/13,551 |     124956     |          120 Mbp |
 
 ## Organelle Assembly using [canu](https://github.com/marbl/canu)
 Reads selected during test assembly using [Rebaler](https://github.com/rrwick/Rebaler) were used for assembly using canu.
-
-```bash
-canu \
-	-d ha-chloro \
-	-p heterosigma \
-	-pacbio-raw /media/science/heterosigma/originals/chloroplast_reads.fasta \
-	genomeSize=159900 \
-	corOutCoverage=80 \
-	corMhapSensitivity=normal \
-	minReadLength=500
-```
 
 ```bash
 canu \
@@ -234,14 +237,7 @@ nucmer -maxmatch -nosimplify heterosigma.contigs.fasta heterosigma.contigs.fasta
 show-coords -lrcTH out.delta
 ```
 
-The first 27,962 bp will be removed from the contig.
-
-#### Mitochonrida Overlap
-
-```bash
-nucmer -maxmatch -nosimplify heterosigma.contigs.fasta heterosigma.contigs.fasta
-show-coords -lrcTH out.delta
-```
+The first 27,929 bp will be removed from the contig.
 
 
 ### Polishing of Genome
