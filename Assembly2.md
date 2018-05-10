@@ -202,10 +202,25 @@ canu \
 	corOutCoverage=100
 ```
 
+### 150 Mbp 
+Keeping any organelle reads within the original files seems to create several contigs for the 18S/ribosomal structure, in addition exclude the Glutathione Peroxidase gene.
+```bash
+canu \
+	-d ha-150-4 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_wout_bac_organelles.fasta \
+	genomeSize=150m \
+	minReadLength=500 \
+	corMhapSensitivity=high \
+	corMinCoverage=0 \
+	corOutCoverage=100
+```
+
 | Assembly | # of Contigs |   NG50/N50    | Longest Contig | Est. Genome Size |
 |:---------|:------------:|:-------------:|:--------------:|-----------------:|
 | Ha-120   |    15,760    | 15,708/13,551 |    124,956     |          120 Mbp |
 | Ha-150-2 |    15,706    | 12,836/13,410 |    189,811     |          150 Mbp |
+| Ha-150-3 |    15,936    | 13,108/13,503 |    105,178     |          150 Mbp |
 
 ## Organelle Assembly using [canu](https://github.com/marbl/canu)
 Reads selected during test assembly using [Rebaler](https://github.com/rrwick/Rebaler) were used for assembly using canu.
