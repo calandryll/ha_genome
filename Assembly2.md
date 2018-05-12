@@ -223,13 +223,6 @@ canu \
 | Ha-150-3<sup>[3](#myfootnote3)</sup> |    15,936    | 13,108/13,503 |    105,178     |          150 Mbp |
 | Ha-150-4<sup>[4](#myfootnote4)</sup> |    15,837    | 13,080/13,512 |     99,628     |          150 Mbp |
 
-<a name="myfootnote1">1</a>: Missing Plasma membrane permase and glutathione peroxidase.
-
-<a name="myfootnote2">2</a>: Missing glutathione peroxidase.
-
-<a name="myfootnote3">3</a>: Missing Plasma membrane permase and glutathione peroxidase.
-
-<a name="myfootnote4">4</a>: Missing Plasma membrane permase and glutathione peroxidase.
 
 
 ## Organelle Assembly using [canu](https://github.com/marbl/canu)
@@ -328,3 +321,12 @@ Assembly from the [transcriptome project](https://github.com/calandryll/transcri
 cat Control_2_unmapped.fastq Control_3_unmapped.fastq Control_4_unmapped.fastq > Control_unmapped.fastq
 seqtk seq -A Control_unmapped.fastq > Control_unmapped.fasta
 ```
+
+### Footnotes
+<a name="myfootnote1">1</a>: Missing Plasma membrane permase and glutathione peroxidase.
+
+<a name="myfootnote2">2</a>: Missing glutathione peroxidase.
+
+<a name="myfootnote3">3</a>: Missing Plasma membrane permase and glutathione peroxidase.
+
+<a name="myfootnote4">4</a>: Missing Plasma membrane permase and glutathione peroxidase.
