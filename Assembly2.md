@@ -224,8 +224,11 @@ canu \
 | Ha-150-4<sup>[4](#myfootnote4)</sup> |    15,837    | 13,080/13,512 |     99,628     |          150 Mbp |
 
 <a name="myfootnote1">1</a>: Missing Plasma membrane permase and glutathione peroxidase.
+
 <a name="myfootnote2">2</a>: Missing glutathione peroxidase.
+
 <a name="myfootnote3">3</a>: Missing Plasma membrane permase and glutathione peroxidase.
+
 <a name="myfootnote4">4</a>: Missing Plasma membrane permase and glutathione peroxidase.
 
 
