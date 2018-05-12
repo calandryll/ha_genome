@@ -216,12 +216,18 @@ canu \
 	corOutCoverage=100
 ```
 
-| Assembly | # of Contigs |   NG50/N50    | Longest Contig | Est. Genome Size |
-|:---------|:------------:|:-------------:|:--------------:|-----------------:|
-| Ha-120   |    15,760    | 15,708/13,551 |    124,956     |          120 Mbp |
-| Ha-150-2 |    15,706    | 12,836/13,410 |    189,811     |          150 Mbp |
-| Ha-150-3 |    15,936    | 13,108/13,503 |    105,178     |          150 Mbp |
-| Ha-150-4 |    15,837    | 13,080/13,512 |     99,628     |          150 Mbp |
+| Assembly     | # of Contigs |   NG50/N50    | Longest Contig | Est. Genome Size |
+|:-------------|:------------:|:-------------:|:--------------:|-----------------:|
+| Ha-120[^1]   |    15,760    | 15,708/13,551 |    124,956     |          120 Mbp |
+| Ha-150-2[^2] |    15,706    | 12,836/13,410 |    189,811     |          150 Mbp |
+| Ha-150-3[^3] |    15,936    | 13,108/13,503 |    105,178     |          150 Mbp |
+| Ha-150-4[^4] |    15,837    | 13,080/13,512 |     99,628     |          150 Mbp |
+
+[^1]: Missing Plasma membrane permase and glutathione peroxidase.
+[^2]: Missing glutathione peroxidase.
+[^3]: Missing Plasma membrane permase and glutathione peroxidase.
+[^4]: Missing Plasma membrane permase and glutathione peroxidase.
+
 
 ## Organelle Assembly using [canu](https://github.com/marbl/canu)
 Reads selected during test assembly using [Rebaler](https://github.com/rrwick/Rebaler) were used for assembly using canu.
