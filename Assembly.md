@@ -82,6 +82,7 @@ canu \
 	corOutCoverage=500 \
 	genomeSize=150m
 ```
+
 ```bash
 canu \
 	-correct \
