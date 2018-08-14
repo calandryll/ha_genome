@@ -95,16 +95,18 @@ canu \
 	genomeSize=150m
 ```
 
+#### Assembly from Corrected Reads
+
 ```bash
 canu \
 	-d ha-150 \
 	-p heterosigma \
-	-pacbio-raw /media/science/heterosigma/originals/heterosigma_cleaned.fasta \
+	-pacbio-raw /media/science/heterosigma/assemblies/ha-150-r5/heterosigma.correctedReads.fasta.gz \
 	genomeSize=150m \
 	minReadLength=500 \
 	corMhapSensitivity=high \
 	corMinCoverage=0 \
-	corOutCoverage=100
+	corOutCoverage=500
 ```
 
 * corOutCoverage=100
