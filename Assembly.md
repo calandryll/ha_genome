@@ -109,9 +109,27 @@ canu \
 	corOutCoverage=500
 ```
 
+The above command generated an assembly missing several 'known' genes that were verified via qPCR, i.e. peroxidase, etc.  A decrease in the coverage after trimming may be the cause of this.
+
+```bash
+canu \
+	-trim-assemble \
+	-d ha-150-t1 \
+	-p ha-e105 \
+	-pacbio-corrected /media/science/heterosigma/assemblies/ha-150/heterosigma.correctedReads.fasta.gz \
+	genomeSize=150m \
+	minReadLength=500 \
+	correctedErrorRate=0.105 \
+	corMhapSensitivity=high \
+	corMinCoverage=0 \
+	corOutCoverage=500
+```
+
 * corOutCoverage=100
   * Option to get more correct sequences
 * minReadLength=500
   * Minimum read length to be loaded into the assembler
 * corMhapSensitivity=high
   * Set the correction Mhap to high
+* correctedErrorRate=0.105
+  * Increase the error rate for overlaps
