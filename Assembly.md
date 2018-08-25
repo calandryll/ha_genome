@@ -25,6 +25,7 @@ cut -f1 organelle.mapped.sam | sort | uniq > organelle_ids.txt
 
 ```bash
 python /media/science/heterosigma/scripts/fasta_cleaner.py /media/science/heterosigma/originals/heterosigma.fasta /media/science/heterosigma/cleanup/bacterial_ids.txt /media/science/heterosigma/originals/heterosigma_cleaned.fasta
+python /media/science/heterosigma/scripts/fasta_cleaner.py /media/science/heterosigma/originals/heterosigma.fasta /media/science/heterosigma/cleanup/organelles_ids.txt /media/science/heterosigma/originals/heterosigma_final.fasta
 ```
 
 ## Genome Assembly
@@ -40,7 +41,7 @@ canu \
 	-correct \
 	-d ha-150-r1 \
 	-p heterosigma \
-	-pacbio-raw /media/science/heterosigma/originals/heterosigma_cleaned.fasta \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_final.fasta \
 	corMinCoverage=0 \
 	corMhapSensitivity=high \
 	corOutCoverage=500 \
