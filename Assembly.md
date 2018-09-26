@@ -117,7 +117,7 @@ canu \
 	-trim-assemble \
 	-d ha-150-t1 \
 	-p ha-e105 \
-	-pacbio-corrected /media/science/heterosigma/assemblies/ha-150/heterosigma.correctedReads.fasta.gz \
+	-pacbio-corrected /media/science/heterosigma/assemblies/ha-150-r5/heterosigma.correctedReads.fasta.gz \
 	genomeSize=150m \
 	minReadLength=500 \
 	correctedErrorRate=0.105 \
@@ -134,3 +134,25 @@ canu \
   * Set the correction Mhap to high
 * correctedErrorRate=0.105
   * Increase the error rate for overlaps
+
+##### Chloroplast Assembly
+
+```bash
+canu \
+	-d organelles \
+	-p organelles \
+	-pacbio-raw /media/science/heterosigma/originals/organelles.fasta \
+	genomeSize=200k \
+	minReadLength=500 \
+	corMhapSensitivity=high \
+	corMinCoverage=0 \
+	corOutCoverage=500 \
+	correctedErrorRate=0.105
+```
+
+##### Chloroplast Overlap
+
+```bash
+nucmer -maxmatch -nosimplify organelles.contigs.fasta organelles.contigs.fasta
+show-coords -lrcTH out.delta
+```
