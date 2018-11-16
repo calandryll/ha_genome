@@ -126,6 +126,23 @@ canu \
 	corOutCoverage=500
 ```
 
+Updated version to 1.7.1 and added suggestions seen in [#1092](https://github.com/marbl/canu/issues/1092).
+
+```bash
+canu \
+	-trim-assemble \
+	-d ha-150-t2 \
+	-p ha-e105 \
+	-pacbio-corrected /media/science/heterosigma/assemblies/ha-150-r5/heterosigma.correctedReads.fasta.gz \
+	genomeSize=150m \
+	minReadLength=500 \
+	correctedErrorRate=0.105 \
+	corMhapSensitivity=normal \
+	corMinCoverage=0 \
+	corOutCoverage=500 \
+	ovlMerThreshold=500
+```
+
 * corOutCoverage=100
   * Option to get more correct sequences
 * minReadLength=500
@@ -155,4 +172,42 @@ canu \
 ```bash
 nucmer -maxmatch -nosimplify organelles.contigs.fasta organelles.contigs.fasta
 show-coords -lrcTH out.delta
+```
+
+### Convert to CDS/ORF for Transcriptome analysis
+
+Using the ha-t2.fasta and assembled mitochondria and chloroplast genomes, ORFs were calculated using ORFfinder.
+
+```bash
+ORFfinder -in H_t2.fa -out H_t2.cds.fa -outfmt 1 -ml 150
+```
+
+Errors:
+>Error (tig00040105) : No ORFs found for the specified parameters
+>Error (tig00047017) : No ORFs found for the specified parameters
+>Error (tig00052994) : No ORFs found for the specified parameters
+>Error (tig00065210) : No ORFs found for the specified parameters
+>Error (tig00067126) : No ORFs found for the specified parameters
+>Error (tig00067256) : No ORFs found for the specified parameters
+>Error (tig00067315) : No ORFs found for the specified parameters
+>Error (tig00068464) : No ORFs found for the specified parameters
+>Error (tig00068658) : No ORFs found for the specified parameters
+>Error (tig00068797) : No ORFs found for the specified parameters
+>Error (tig00355158) : No ORFs found for the specified parameters
+>Error (tig00357754) : No ORFs found for the specified parameters
+>Error (tig00358009) : No ORFs found for the specified parameters
+
+ hisat2 -t -p 24 -x /media/science/heterosigma/assemblies/fasta/Heterosigma -U ../qc/Control_2_unmapped.fastq -S Control_2.sam --summary-file control_2.txt
+
+## Reassembly
+```bash
+canu \
+	-correct \
+	-d ha-1gbp-r1 \
+	-p heterosigma \
+	-pacbio-raw /media/science/heterosigma/originals/heterosigma_final.fasta \
+	corMinCoverage=0 \
+	corMhapSensitivity=high \
+	corOutCoverage=500 \
+	genomeSize=1g
 ```
